@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1 class="display-6 fw-bold mb-3">Add New Property</h1>
+<div class="p-4 mb-4 rounded-3 border bg-white">
+  <div class="container-fluid">
+    <form action="{{url_for('property')}}" method="POST" enctype="multipart/form-data" class="g-3">
+      {{ form.csrf_token }}
+      <div class="row">
+        <div class="col-md-8">
+          <label class="form-label fw-bold">{{ form.title.label }}</label>
+          {{ form.title (class="form-control")}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 mt-3">
+          <label class="form-label fw-bold">{{ form.description.label }}</label>
+          {{ form.description (class="form-control py-3")}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mt-3">
+          <label class="form-label fw-bold">{{ form.room.label }}</label>
+          {{ form.room (class="form-control")}}
+        </div>
+        <div class="col-md-4 mt-3">
+          <label class="form-label fw-bold">{{ form.bathroom.label }}</label>
+          {{ form.bathroom (class="form-control")}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mt-3">
+          <label class="form-label fw-bold">{{ form.price.label }}</label>
+          {{ form.price (class="form-control")}}
+        </div>
+        <div class="col-md-4 mt-3">
+          <label class="form-label fw-bold">{{ form.type.label }}</label>
+          {{ form.type (class="form-select")}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 mt-3">
+          <label class="form-label fw-bold">{{ form.location.label }}</label>
+          {{ form.location (class="form-control")}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 mb-3 mt-3">
+          <label class="form-label fw-bold">{{ form.photo.label }}</label>
+          {{ form.photo (class="form-control")}}
+        </div>
+      </div>
+      <div class="col-md-12 mt-2">
+        <button type="submit" class="px-3 btn btn-primary">Add Property</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

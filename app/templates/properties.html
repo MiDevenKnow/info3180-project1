@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1 class="display-6 fw-bold mb-3">Properties</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for property in property %}
+        <div class="col">
+            <div class="card rounded-top">
+                <img src="{{ url_for('get_image', filename = property.photo) }}" class="card-img-top rounded-top" alt="">
+                <div class="card-body shadow">
+                    <h5 class="card-title">{{ property.title }}</h5>
+                    <p class="card-text text-muted"><i class="bi bi-geo-alt"></i> {{ property.location }}</p>
+                    <button type="button" class="btn btn-primary px-3 rounded-pill mb-3 mt-2">$ {{ "{:,.2f}".format(property.price) }}</button>
+                </div>
+                <div class="card-footer p-0">
+                    <a role="button" href=" {{ url_for('this_property', propertyid = property.id) }}" class="btn btn-primary py-2 border-0 rounded-0 rounded-bottom fw-bold" style="width:100%; background-color: var(--bs-teal);">
+                        View Property
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
